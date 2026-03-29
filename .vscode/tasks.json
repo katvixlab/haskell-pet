@@ -1,0 +1,34 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      // F7
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "label": "cabal build",
+      "type": "shell",
+      "command": "cabal build"
+    },
+    {
+      // F6
+      "group": "build",
+      "type": "shell",
+      "label": "cabal clean & build",
+      "command": "cabal clean && cabal build"
+    },
+    {
+      // F5 (если сделать debug конфиг) или Run Task
+      "label": "cabal run",
+      "type": "shell",
+      "command": "cabal run"
+    },
+    {
+      // REPL для разработки
+      "label": "cabal repl",
+      "type": "shell",
+      "command": "cabal repl"
+    }
+  ]
+}
