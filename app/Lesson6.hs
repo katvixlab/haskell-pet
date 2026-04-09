@@ -11,5 +11,8 @@ instance Functor Tree where
     fmap f (Node left x right) = Node (fmap f left) (f x) (fmap f right)
 
 elemTree :: Eq a => a -> Tree a -> Bool
-elemTree _ Leaf = False
-elemTree f (Node left x right) = f == x ||  elemTree f right || elemTree f left
+go :: Eq a => a -> [Tree a] -> Bool
+elemTree a tree = go a [tree]
+go _ [] = False
+go f (Node left y right:ys) = f == y || go f (ys ++ [right, left])
+go f (Leaf:ys) = go f ys
